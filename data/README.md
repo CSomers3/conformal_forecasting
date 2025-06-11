@@ -18,6 +18,6 @@ SCADA/
   powercurve.csv
 
 ERA5/
-  combined.csv
+  combined_era5.csv
 
 ```
