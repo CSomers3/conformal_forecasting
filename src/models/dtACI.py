@@ -2,7 +2,7 @@
 Dynamically-tuned Adaptive Conformal Inference.
 
 Implementation of 'Conformal Inference for Online Prediction with Arbitrary
-Distribution Shifts', Gibbs and Candès (2023), https://arxiv.org/abs/2208.08401
+Distribution Shifts', Gibbs and Candès (2024), https://arxiv.org/abs/2208.08401
 """
 
 import numpy as np
