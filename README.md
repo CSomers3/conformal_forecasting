@@ -12,7 +12,7 @@ Grid operators need accurate probabilistic forecasts to manage renewable variabi
 
 - **Valid coverage under extreme conditions**: ACI methods maintain ~90% empirical coverage under strong temporal dependence ($\rho$=0.95), abrupt regime shifts, and complex spatial correlations—where standard methods fail.
 - **Regime-shift robustness**: DtACI provides 15-20% sharper intervals than fixed-$\gamma$ ACI when distributions shift abruptly (common in wind).
-- **Real-world validation**: STGCN point forecasts + ACI on Kelmarsh Wind Farm achieve lower Winkler Scores than OSSCP baseline and significantly outperform uncalibrated Quantile Regression (69.5% miscoverage).
+- **Real-world validation**: STGCN point forecasts + ACI on Kelmarsh Wind Farm achieve lower Winkler Scores than OSSCP baseline and significantly outperform uncalibrated Quantile Regression (69.5% coverage vs ~90%).
 
 ## Structure
 
