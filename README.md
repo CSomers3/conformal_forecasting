@@ -1,6 +1,6 @@
 # Adaptive Conformal Prediction for Wind Farm Forecasting
 
-**Turn any wind power forecaster into probabilistic intervals with theoretical coverage guarantees—even under regime changes.**
+**Turn any wind power forecaster into probabilistic intervals with theoretical coverage guarantees - even under regime changes.**
 
 This repository implements adaptive conformal inference (ACI) methods for distribution-free uncertainty quantification in wind energy forecasting. Developed as an MSc Statistics thesis at UCL, it demonstrates how online conformal prediction can maintain reliable coverage under temporal dependence, distributional shift, and spatial correlation - without retraining the underlying forecaster.
 
