@@ -18,3 +18,5 @@ SCADA/
   powercurve.csv
 
 ```
+
+The NWP data from GFS is downloaded directly from [Open Meteo](https://open-meteo.com/en/docs/historical-forecast-api)!
