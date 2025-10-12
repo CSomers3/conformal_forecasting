@@ -142,7 +142,7 @@ If you use this code, please cite the thesis (pending publication):
 
 ```bibtex
 @mastersthesis{somers2025conformal,
-  author  = {Carl Somers},
+  author  = {Carl Somers, F. Javier Rubio, Domna Ladopoulou},
   title   = {Reliable Uncertainty Quantification for Wind Farm Forecasting: 
              Adaptive Conformal Prediction under Distribution Shift},
   school  = {University College London},
