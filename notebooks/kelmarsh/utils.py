@@ -1,8 +1,13 @@
 """
-Utility functions for graph creation, model training, and data scaling.
+Utility functions for data prep, graph creation, model training, and data scaling.
 """
+
+import os
 import logging
 import numpy as np
+import pandas as pd
+import glob
+from pathlib import Path
 import torch
 import torch.nn as nn
 from sklearn.metrics import pairwise_distances
@@ -13,6 +18,45 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
 )
+
+def load_kelmarsh_data(base_path):
+    """
+    Load Kelmash SCADA and log data
+    """
+    print("Loading SCADA data & Logs...")
+    
+    dct_scada = {}
+    dct_logs = {}
+    for trb_id in range(1, 7):
+        # Load SCADA data
+        scada_files = glob.glob(f"{base_path}*/Turbine_Data_Kelmarsh_{trb_id}_*.csv")
+        if scada_files:
+            df = pd.concat([
+                pd.read_csv(f, skiprows=9, low_memory=False, index_col='# Date and time')
+                for f in sorted(scada_files)
+            ])
+            
+            df.index = pd.to_datetime(df.index, utc=True)
+            df.index.names = ['timestamp']
+            df = df[df['Data Availability'] == 1].dropna(axis=1, how='all')
+            
+            dct_scada[f'T0{trb_id}'] = df
+        
+        # Load status logs
+        log_files = glob.glob(f"{base_path}*/Status_Kelmarsh_{trb_id}_*.csv")
+        if log_files:
+            df_logs = pd.concat([
+                pd.read_csv(f, skiprows=9, low_memory=False, index_col='Timestamp start')
+                for f in sorted(log_files)
+            ])
+            
+            df_logs.index = pd.to_datetime(df_logs.index, utc=True)
+            df_logs = df_logs.dropna(axis=1, how='all')
+            
+            dct_logs[f'T0{trb_id}'] = df_logs
+    
+    return dct_scada, dct_logs
+
 
 def build_adjacency_from_coords(coords: np.ndarray, k: int = 3) -> np.ndarray:
     """
