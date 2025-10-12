@@ -17,7 +17,4 @@ SCADA/
   Kelmarsh_SCADA_2021_3087/...
   powercurve.csv
 
-ERA5/
-  combined_era5.csv
-
 ```
